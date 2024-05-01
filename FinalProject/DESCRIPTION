@@ -1,12 +1,81 @@
-Package: FinalProject
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
-Encoding: UTF-8
-LazyData: true
-RoxygenNote: 7.3.1
+```r
+#' FinalProject: A Package for Various Data Analysis Tasks
+#'
+#' This package provides functions for various tasks in data analysis and manipulation.
+#'
+#' @docType package
+#' @name FinalProject
+#' @aliases FinalProject
+#' @keywords package
+#' @version 0.1.0
+#' @author Aadarsh Eetikala
+#' @title FinalProject: A Package for Various Data Analysis Tasks
+#'
+#' @description
+#' This package contains functions for various data analysis tasks, including computing
+#' maximum likelihood estimates, survival curve analysis, variable name standardization,
+#' and more.
+#'
+#' @details
+#' The package includes the following functions:
+#' - \code{\link{logLikBernoulli}}: Compute the maximum likelihood estimate of the
+#' success probability for a Bernoulli trial.
+#' - \code{\link{survCurv}}: Calculate and plot a survival curve based on survival
+#' status and time data.
+#' - \code{\link{unscale}}: Reverse the centering and scaling applied to a vector.
+#' - \code{\link{pcApprox}}: Return an approximation to data based on principal
+#' components analysis.
+#' - \code{\link{standardizeNames}}: Standardize variable names in a data frame.
+#' - \code{\link{minimumN}}: Compute the minimum sample size needed for a t-test.
+#' - \code{\link{downloadRedcapReport}}: Download a Redcap report using the Redcap API.
+#'
+#' @references
+#' For more information on individual functions, see the documentation for each function.
+#'
+#' @license What license is it under? (Replace this with the appropriate license information)
+#' @encoding UTF-8
+#' @importFrom dplyr %>%
+#' @importFrom dplyr rename_with
+#' @importFrom janitor make_clean_names
+#' @importFrom snakecase to_lower_camel_case
+#' @importFrom stats log
+#' @importFrom tibble tibble
+#' @importFrom httr POST
+#' @importFrom httr content
+#' @importFrom utils read.csv
+#'
+#' @examples
+#' # Example usage of logLikBernoulli
+#' data <- c(1, 0, 0, 0, 1, 1, 1)
+#' logLikBernoulli(data)
+#'
+#' # Example usage of survCurv
+#' data <- read.csv("https://jlucasmckay.bmi.emory.edu/global/bmi510/Labs-Materials/survival.csv")
+#' survCurv(data$status, data$time)
+#'
+#' # Example usage of unscale
+#' scaled_vector <- scale(c(1, 2, 3, 4, 5))
+#' unscale(scaled_vector)
+#'
+#' # Example usage of pcApprox
+#' data <- matrix(rnorm(100), ncol = 10)
+#' npc <- 2
+#' pcApprox(data, npc)
+#'
+#' # Example usage of standardizeNames
+#' data <- tibble::tibble(
+#'   This_Is_A_Test = 1,
+#'   Another_Test = 2
+#' )
+#' standardizeNames(data)
+#'
+#' # Example usage of minimumN
+#' x1 <- rnorm(20)
+#' minimumN(x1)
+#' x2 <- rnorm(30)
+#' minimumN(x1, x2)
+#'
+#' # Example usage of downloadRedcapReport
+#' # downloadRedcapReport("redcapToken", "https://redcap.emory.edu/api/", "46524")
+#' @export
+```
